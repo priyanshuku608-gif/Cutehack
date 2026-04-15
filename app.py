@@ -177,6 +177,7 @@ def handle_requests():
     hex_result = process_request()
     return hex_result
 
-if __name__ == '__main__':
-    app.run(debug=True, use_reloader=False)
-#this code was made by cutehack
+if __name__ == "__main__":
+    import os
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
