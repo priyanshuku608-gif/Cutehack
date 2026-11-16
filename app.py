@@ -45,16 +45,16 @@ def create_protobuf_message(user_id, region):
 async def send_request(encrypted_uid, token, url):
     edata = bytes.fromhex(encrypted_uid)
     headers = {
-        'User-Agent': "Dalvik/2.1.0 (Linux; U; Android 9; ASUS_Z01QD Build/PI)",
-        'Connection': "Keep-Alive",
-        'Accept-Encoding': "gzip",
-        'Authorization': f"Bearer {token}",
-        'Content-Type': "application/x-www-form-urlencoded",
-        'Expect': "100-continue",
-        'X-Unity-Version': "2018.4.11f1",
-        'X-GA': "v1 1",
-        'ReleaseVersion': "OB55"
-    }
+            "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 9; ASUS_Z01QD Build/PI)",
+            "Connection": "Keep-Alive",
+            "Accept-Encoding": "gzip",
+            "Authorization": f"Bearer {token}",
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Expect": "100-continue",
+            "X-Unity-Version": "2022.3.47f1",
+            "X-GA": "v1 1",
+            "ReleaseVersion": "OB55"
+        }
     async with aiohttp.ClientSession() as session:
         async with session.post(url, data=edata, headers=headers) as response:
             if response.status != 200:
@@ -97,16 +97,16 @@ def make_request(encrypt, server_name, token):
     edata = bytes.fromhex(encrypt)
 
     headers = {
-        'User-Agent': "Dalvik/2.1.0 (Linux; U; Android 9; ASUS_Z01QD Build/PI)",
-        'Connection': "Keep-Alive",
-        'Accept-Encoding': "gzip",
-        'Authorization': f"Bearer {token}",
-        'Content-Type': "application/x-www-form-urlencoded",
-        'Expect': "100-continue",
-        'X-Unity-Version': "2018.4.11f1",
-        'X-GA': "v1 1",
-        'ReleaseVersion': "OB55"
-    }
+            "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 9; ASUS_Z01QD Build/PI)",
+            "Connection": "Keep-Alive",
+            "Accept-Encoding": "gzip",
+            "Authorization": f"Bearer {token}",
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Expect": "100-continue",
+            "X-Unity-Version": "2022.3.47f1",
+            "X-GA": "v1 1",
+            "ReleaseVersion": "OB55"
+        }
 
     response = requests.post(url, data=edata, headers=headers, verify=False)
     hex = response.content.hex()
